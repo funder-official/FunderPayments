@@ -1,0 +1,58 @@
+# Visual Studio / Rider / Cursor
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Environment / secrets
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.local.json
+
+# Publishing
+*.pubxml
+*.publishproj
+
+# User-specific files
+*.rsuser
+
+# Test results
+TestResults/
+
+# NuGet
+packages/
+.nuget/
+
+# Node (אם יש frontend)
+node_modules/
+
+# VS Code
+.vscode/
+
+# Docker
+docker-compose.override.yml
+.env
+.env.*
+
+# Coverage
+coverage/
