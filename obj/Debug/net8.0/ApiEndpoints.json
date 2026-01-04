@@ -1,0 +1,173 @@
+[
+  {
+    "ContainingType": "FunderPayments.Controllers.BillingController",
+    "Method": "History",
+    "RelativePath": "api/Billing/billing-history",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FunderPayments.Controllers.BillingController",
+    "Method": "Charge",
+    "RelativePath": "api/Billing/charge",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "FunderPayments.Models.Requests.ManualChargeRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FunderPayments.Controllers.BillingController",
+    "Method": "Tokens",
+    "RelativePath": "api/Billing/tokens",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FunderPayments.Controllers.BillingController",
+    "Method": "UpdateMonthlyAmount",
+    "RelativePath": "api/Billing/tokens/{tokenId}/monthly-amount",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tokenId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "FunderPayments.Models.Requests.UpdateMonthlyAmountRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FunderPayments.Controllers.PaymentsController",
+    "Method": "Callback",
+    "RelativePath": "api/Payments/callback",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ResponseCode",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Token",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DealResponse",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ApproveNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CardType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "L4digit",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CardValidityMonth",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "CardValidityYear",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "InvoiceNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ErrorText",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ReturnValue",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "LowProfileId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "FormData",
+        "Type": "System.Collections.Generic.Dictionary\u00602[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FunderPayments.Controllers.PaymentsController",
+    "Method": "Init",
+    "RelativePath": "api/Payments/init",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "FunderPayments.Models.Requests.PaymentInitRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FunderPayments.Models.Responses.PaymentInitResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

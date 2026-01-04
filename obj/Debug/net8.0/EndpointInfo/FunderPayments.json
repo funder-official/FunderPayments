@@ -1,0 +1,379 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "FunderPayments",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Billing/charge": {
+      "post": {
+        "tags": [
+          "Billing"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ManualChargeRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ManualChargeRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ManualChargeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Billing/tokens": {
+      "get": {
+        "tags": [
+          "Billing"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Billing/billing-history": {
+      "get": {
+        "tags": [
+          "Billing"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Billing/tokens/{tokenId}/monthly-amount": {
+      "patch": {
+        "tags": [
+          "Billing"
+        ],
+        "parameters": [
+          {
+            "name": "tokenId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMonthlyAmountRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMonthlyAmountRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMonthlyAmountRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Payments/init": {
+      "post": {
+        "tags": [
+          "Payments"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentInitRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentInitRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentInitRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentInitResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentInitResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentInitResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Payments/callback": {
+      "post": {
+        "tags": [
+          "Payments"
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ResponseCode": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Token": {
+                    "type": "string"
+                  },
+                  "DealResponse": {
+                    "type": "string"
+                  },
+                  "ApproveNumber": {
+                    "type": "string"
+                  },
+                  "CardType": {
+                    "type": "string"
+                  },
+                  "L4digit": {
+                    "type": "string"
+                  },
+                  "CardValidityMonth": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "CardValidityYear": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "InvoiceNumber": {
+                    "type": "string"
+                  },
+                  "ErrorText": {
+                    "type": "string"
+                  },
+                  "ReturnValue": {
+                    "type": "string"
+                  },
+                  "LowProfileId": {
+                    "type": "string"
+                  },
+                  "FormData": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string",
+                      "nullable": true
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "ResponseCode": {
+                  "style": "form"
+                },
+                "Token": {
+                  "style": "form"
+                },
+                "DealResponse": {
+                  "style": "form"
+                },
+                "ApproveNumber": {
+                  "style": "form"
+                },
+                "CardType": {
+                  "style": "form"
+                },
+                "L4digit": {
+                  "style": "form"
+                },
+                "CardValidityMonth": {
+                  "style": "form"
+                },
+                "CardValidityYear": {
+                  "style": "form"
+                },
+                "InvoiceNumber": {
+                  "style": "form"
+                },
+                "ErrorText": {
+                  "style": "form"
+                },
+                "ReturnValue": {
+                  "style": "form"
+                },
+                "LowProfileId": {
+                  "style": "form"
+                },
+                "FormData": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ManualChargeRequest": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "tokenId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "coinId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentInitRequest": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "coinId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "successRedirectUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "errorRedirectUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentInitResult": {
+        "type": "object",
+        "properties": {
+          "paymentPageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "iframeHtml": {
+            "type": "string",
+            "nullable": true
+          },
+          "payload": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateMonthlyAmountRequest": {
+        "type": "object",
+        "properties": {
+          "monthlyAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
